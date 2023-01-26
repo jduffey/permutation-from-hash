@@ -1,0 +1,16 @@
+{
+    "name": "convert-hash-to-combination",
+    "version": "0.0.1",
+    "author": "Jed Duffey",
+    "license": "MIT",
+    "description": "Returns a unique combination from the set of lexicographically sorted combinations of a collection based on a hash value",
+    "scripts": {
+        "test": "jest --coverage"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.20.7",
+        "@babel/preset-env": "^7.20.2",
+        "babel-jest": "^29.3.1",
+        "jest": "^29.3.1"
+    }
+}
