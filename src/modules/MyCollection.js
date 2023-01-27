@@ -68,12 +68,22 @@ export class MyCollection {
 
         const hashAsNumber = BigInt("0x" + hash);
 
-        const lexicoOrderIndex = getLexicoOrderIndex(numCombos, hashAsNumber);
+        // Math.min is a hack to avoid errors due to chunking not evenly divinding into the range of possible hash values
+        // If the lexicoOrderIndex is equal to numCombos the code will enter an infinite loop
+        const lexicoOrderIndex =
+            Math.min(getLexicoOrderIndex(numCombos, hashAsNumber), numCombos - 1);
+
+        if (lexicoOrderIndex >= numCombos) {
+            throw new Error(
+                `lexicoOrderIndex (${lexicoOrderIndex}) is greater than or equal to numCombos (${numCombos})` +
+                ` which will cause an infinite loop in the current implementation.`
+            );
+        }
 
         const uniqueCombinationIndices = findUniqueCombination(
             this.collectionSize,
             groupSize,
-            lexicoOrderIndex,
+            lexicoOrderIndex
         );
 
         const uniqueCombinationElements = uniqueCombinationIndices.map((index) => {
