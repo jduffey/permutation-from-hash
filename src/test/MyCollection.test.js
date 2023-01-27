@@ -1,14 +1,16 @@
 import { MyCollection } from "../modules/MyCollection";
 
 describe("MyCollection.getCombination given hash returns combination", () => {
-    const GROUP_SIZE_ONE = 1;
-    const GROUP_SIZE_TWO = 2;
-    const GROUP_SIZE_THREE = 3;
+    const GROUP_SIZE = {
+        ONE: 1,
+        TWO: 2,
+        THREE: 3,
+    };
 
     describe("for collection with 1 element(s)", () => {
         const collection = [0];
 
-        describe(`group size ${GROUP_SIZE_ONE} for collection [${collection}]`, () => {
+        describe(`group size ${GROUP_SIZE.ONE} for collection [${collection}]`, () => {
             it.each([
                 [
                     "0000000000000000000000000000000000000000000000000000000000000000",
@@ -21,7 +23,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
             ])("%s -> %s", (hash, expected) => {
                 const sut = new MyCollection(collection);
 
-                const actual = sut.getCombination(GROUP_SIZE_ONE, hash);
+                const actual = sut.getCombination(GROUP_SIZE.ONE, hash);
 
                 expect(actual).toEqual(expected);
             });
@@ -31,7 +33,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
     describe("for collection with 2 element(s)", () => {
         const collection = [0, 1];
 
-        describe(`group size ${GROUP_SIZE_ONE} for collection [${collection}]`, () => {
+        describe(`group size ${GROUP_SIZE.ONE} for collection [${collection}]`, () => {
             it.each([
                 [
                     "0000000000000000000000000000000000000000000000000000000000000000",
@@ -60,13 +62,13 @@ describe("MyCollection.getCombination given hash returns combination", () => {
             ])("%s -> %s", (hash, expected) => {
                 const sut = new MyCollection(collection);
 
-                const actual = sut.getCombination(GROUP_SIZE_ONE, hash);
+                const actual = sut.getCombination(GROUP_SIZE.ONE, hash);
 
                 expect(actual).toEqual(expected);
             });
         });
 
-        describe(`group size ${GROUP_SIZE_TWO} for collection [${collection}]`, () => {
+        describe(`group size ${GROUP_SIZE.TWO} for collection [${collection}]`, () => {
             it.each([
                 [
                     "0000000000000000000000000000000000000000000000000000000000000000",
@@ -96,7 +98,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
             ])("%s -> %s", (hash, expected) => {
                 const sut = new MyCollection(collection);
 
-                const actual = sut.getCombination(GROUP_SIZE_TWO, hash);
+                const actual = sut.getCombination(GROUP_SIZE.TWO, hash);
 
                 expect(actual).toEqual(expected);
             });
@@ -106,7 +108,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
     describe("for collection with 5 element(s)", () => {
         const collection = [0, 1, 2, 3, 4];
 
-        describe(`group size ${GROUP_SIZE_THREE} for collection [${collection}]`, () => {
+        describe(`group size ${GROUP_SIZE.THREE} for collection [${collection}]`, () => {
             it.each([
                 [
                     "0000000000000000000000000000000000000000000000000000000000000000",
@@ -130,7 +132,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
             ])("%s -> %s", (hash, expected) => {
                 const sut = new MyCollection([0, 1, 2, 3, 4]);
 
-                const actual = sut.getCombination(GROUP_SIZE_THREE, hash);
+                const actual = sut.getCombination(GROUP_SIZE.THREE, hash);
 
                 expect(actual).toEqual(expected);
             });
