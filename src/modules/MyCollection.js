@@ -1,6 +1,7 @@
-var tables = {};
+// With help from SuJin Wang (https://www.codementor.io/@grigoriykylypko)
+const tables = {};
 function nCr(n, r) {
-    var key = n + "," + r;
+    const key = n + "," + r;
     if (key in tables)
         return tables[key];
 
@@ -16,22 +17,22 @@ function nCr(n, r) {
     if (n == 1)
         return 1;
 
-    var val = nCr(n - 1, r - 1) + nCr(n - 1, r);
+    const val = nCr(n - 1, r - 1) + nCr(n - 1, r);
     tables[key] = val;
 
     return val;
 }
 
 function findUniqueCombination(n, k, m) {
-    var S = [];
-    for (var j = 0; j < k; j++)
+    const S = [];
+    for (let j = 0; j < k; j++)
         S.push(j);
 
-    var i = 0;
-    var t = 0;
+    let i = 0;
+    let t = 0;
 
     while (i < k) {
-        var v = nCr(n - 1 - t, k - i - 1);
+        const v = nCr(n - 1 - t, k - i - 1);
         if (v <= m) {
             m = m - v;
         } else {
