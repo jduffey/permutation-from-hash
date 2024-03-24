@@ -23,7 +23,7 @@ function nCr(n, r) {
     return val;
 }
 
-function findUniqueCombination(n, k, m) {
+function findUniqueCombinationIndices(n, k, m) {
     const S = [];
     for (let j = 0; j < k; j++)
         S.push(j);
@@ -80,7 +80,7 @@ export class MyCollection {
             );
         }
 
-        const uniqueCombinationIndices = findUniqueCombination(
+        const uniqueCombinationIndices = findUniqueCombinationIndices(
             this.collectionSize,
             groupSize,
             lexicoOrderIndex

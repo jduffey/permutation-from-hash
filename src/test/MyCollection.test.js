@@ -9,6 +9,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
 
     describe("for collection with 1 element(s)", () => {
         const collection = [0];
+        const sut = new MyCollection(collection);
 
         describe(`group size ${GROUP_SIZE.ONE} for collection [${collection}]`, () => {
             it.each([
@@ -21,10 +22,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
                     [0],
                 ],
             ])("%s -> %s", (hash, expected) => {
-                const sut = new MyCollection(collection);
-
                 const actual = sut.getCombination(GROUP_SIZE.ONE, hash);
-
                 expect(actual).toEqual(expected);
             });
         });
@@ -32,6 +30,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
 
     describe("for collection with 2 element(s)", () => {
         const collection = [0, 1];
+        const sut = new MyCollection(collection);
 
         describe(`group size ${GROUP_SIZE.ONE} for collection [${collection}]`, () => {
             it.each([
@@ -60,10 +59,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
                     [1],
                 ],
             ])("%s -> %s", (hash, expected) => {
-                const sut = new MyCollection(collection);
-
                 const actual = sut.getCombination(GROUP_SIZE.ONE, hash);
-
                 expect(actual).toEqual(expected);
             });
         });
@@ -96,10 +92,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
                     [0, 1],
                 ],
             ])("%s -> %s", (hash, expected) => {
-                const sut = new MyCollection(collection);
-
                 const actual = sut.getCombination(GROUP_SIZE.TWO, hash);
-
                 expect(actual).toEqual(expected);
             });
         });
@@ -107,6 +100,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
 
     describe("for collection with 5 element(s)", () => {
         const collection = [0, 1, 2, 3, 4];
+        const sut = new MyCollection([0, 1, 2, 3, 4]);
 
         describe(`group size ${GROUP_SIZE.THREE} for collection [${collection}]`, () => {
             it.each([
@@ -118,7 +112,6 @@ describe("MyCollection.getCombination given hash returns combination", () => {
                     "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
                     [2, 3, 4],
                 ],
-
                 // The upper bound hash that will work without the hack
                 [
                     "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9",
@@ -130,10 +123,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
                     [2, 3, 4],
                 ],
             ])("%s -> %s", (hash, expected) => {
-                const sut = new MyCollection([0, 1, 2, 3, 4]);
-
                 const actual = sut.getCombination(GROUP_SIZE.THREE, hash);
-
                 expect(actual).toEqual(expected);
             });
         });
