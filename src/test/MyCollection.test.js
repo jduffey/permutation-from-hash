@@ -22,7 +22,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
                     [0],
                 ],
             ])("%s -> %s", (hash, expected) => {
-                const actual = sut.getCombination(GROUP_SIZE.ONE, hash);
+                const actual = sut.getPermutation(GROUP_SIZE.ONE, hash);
                 expect(actual).toEqual(expected);
             });
         });
@@ -59,7 +59,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
                     [1],
                 ],
             ])("%s -> %s", (hash, expected) => {
-                const actual = sut.getCombination(GROUP_SIZE.ONE, hash);
+                const actual = sut.getPermutation(GROUP_SIZE.ONE, hash);
                 expect(actual).toEqual(expected);
             });
         });
@@ -92,7 +92,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
                     [0, 1],
                 ],
             ])("%s -> %s", (hash, expected) => {
-                const actual = sut.getCombination(GROUP_SIZE.TWO, hash);
+                const actual = sut.getPermutation(GROUP_SIZE.TWO, hash);
                 expect(actual).toEqual(expected);
             });
         });
@@ -123,7 +123,7 @@ describe("MyCollection.getCombination given hash returns combination", () => {
                     [2, 3, 4],
                 ],
             ])("%s -> %s", (hash, expected) => {
-                const actual = sut.getCombination(GROUP_SIZE.THREE, hash);
+                const actual = sut.getPermutation(GROUP_SIZE.THREE, hash);
                 expect(actual).toEqual(expected);
             });
         });

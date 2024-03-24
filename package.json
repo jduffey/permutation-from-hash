@@ -1,9 +1,9 @@
 {
-    "name": "convert-hash-to-combination",
+    "name": "permutation-from-hash",
     "version": "0.0.1",
     "author": "Jed Duffey",
     "license": "MIT",
-    "description": "Returns a unique combination from the set of lexicographically sorted combinations of a collection based on a hash value",
+    "description": "Returns the lexicographically sorted permutation, given an array of elements, a permutation size, and hash value.",
     "scripts": {
         "test": "jest --coverage"
     },

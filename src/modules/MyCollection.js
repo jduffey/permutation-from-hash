@@ -23,7 +23,7 @@ function nCr(n, r) {
     return val;
 }
 
-function findUniqueCombinationIndices(n, k, m) {
+function findPermutationIndices(n, k, m) {
     const S = [];
     for (let j = 0; j < k; j++)
         S.push(j);
@@ -63,7 +63,7 @@ export class MyCollection {
         this.collectionSize = collection.length;
     }
 
-    getCombination(groupSize, hash) {
+    getPermutation(groupSize, hash) {
         const numCombos = nCr(this.collectionSize, groupSize);
 
         const hashAsNumber = BigInt("0x" + hash);
@@ -80,16 +80,16 @@ export class MyCollection {
             );
         }
 
-        const uniqueCombinationIndices = findUniqueCombinationIndices(
+        const permutationIndices = findPermutationIndices(
             this.collectionSize,
             groupSize,
             lexicoOrderIndex
         );
 
-        const uniqueCombinationElements = uniqueCombinationIndices.map((index) => {
+        const permutation = permutationIndices.map((index) => {
             return this.collection[index];
         });
 
-        return uniqueCombinationElements;
+        return permutation;
     }
 }
