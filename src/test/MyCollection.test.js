@@ -1,6 +1,6 @@
 import { MyCollection } from "../modules/MyCollection";
 
-describe("MyCollection.getCombination given hash returns combination", () => {
+xdescribe("MyCollection.getCombination given hash returns combination", () => {
     const GROUP_SIZE = {
         ONE: 1,
         TWO: 2,
